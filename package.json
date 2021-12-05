@@ -1,5 +1,5 @@
 {
-  "name": "contacts-app",
+  "name": "nextjs-contacts-app",
   "private": true,
   "scripts": {
     "dev": "next dev",

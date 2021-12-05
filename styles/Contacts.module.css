@@ -1,5 +1,6 @@
 .container {
   padding: 0 2rem;
+  background-color: whitesmoke;
 }
 
 .main {
@@ -56,6 +57,14 @@
   font-size: 1.5rem;
 }
 
+.grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 800px;
+}
+
 .code {
   background: #fafafa;
   border-radius: 5px;
@@ -65,16 +74,8 @@
     Bitstream Vera Sans Mono, Courier New, monospace;
 }
 
-.grid {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  max-width: 800px;
-}
-
 .card {
-  margin: 1rem;
+  margin: .5rem;
   padding: 1.5rem;
   text-align: left;
   color: inherit;
@@ -82,19 +83,29 @@
   border: 1px solid #eaeaea;
   border-radius: 10px;
   transition: color 0.15s ease, border-color 0.15s ease;
-  max-width: 300px;
+  width: 90%;
+  box-shadow: 0 5px 5px rgb(0 0 0 / 0.2);
+  list-style: none;
+  cursor: pointer;
+  background-color: white;
+
 }
 
 .card:hover,
 .card:focus,
 .card:active {
-  color: #0070f3;
-  border-color: #0070f3;
+  /* color: #0070f3; */
+  /* color: #991a42; */
+  /* border-color: #0070f3; */
 }
 
 .card h2 {
-  margin: 0 0 1rem 0;
+  margin: 0 0 0.5rem 0;
   font-size: 1.5rem;
+}
+
+.card h2:hover {
+  color: #991a42;
 }
 
 .card p {
@@ -103,12 +114,22 @@
   line-height: 1.5;
 }
 
+.city {
+  color: #708496;
+  margin: 0;
+  font-size: 1rem !important;
+}
+
 .logo {
   height: 1em;
   margin-left: 0.5rem;
 }
 
 @media (max-width: 600px) {
+  .container {
+    padding: 0;
+  }
+
   .grid {
     width: 100%;
     flex-direction: column;
