@@ -32,8 +32,8 @@ function Contact({ contact }) {
                             <div className={utilStyles.iconWrapper}>
                                 <a href={phone}><Image src={callIcon} /></a>
                                 <a href={mail}><Image src={emailIcon} /></a>
-                                <a href={location} target="_blank"><Image src={locationIcon} /></a>
-                                <a href={website} target="_blank"><Image src={websiteIcon} /></a>
+                                <a href={location} target="_blank" rel="noopener noreferrer"><Image src={locationIcon} /></a>
+                                <a href={website} target="_blank" rel="noopener noreferrer"><Image src={websiteIcon} /></a>
                             </div>
                         </div>
                         <p><span className={utilStyles.infoTitle}>Phone</span> {contact.phone} </p>
@@ -41,7 +41,7 @@ function Contact({ contact }) {
                         <p><span className={utilStyles.infoTitle}>Address</span> { } </p>
                         <p><span className={utilStyles.infoTitle}>Website</span>{' '}
                             <Link href={website}>
-                                <a target="_blank" className={utilStyles.link}>{contact.website}</a>
+                                <a target="_blank" rel="noopener noreferrer" className={utilStyles.link}>{contact.website}</a>
                             </Link>
                         </p>
                         <p><span className={utilStyles.infoTitle}>Company</span> {contact.company.name} </p>
