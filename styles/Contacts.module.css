@@ -96,7 +96,7 @@
   cursor: pointer;
 }
 
-.card h2:hover {
+.card h2:hover, .card h2:focus, .card h2:active {
   color: #991a42;
 }
 

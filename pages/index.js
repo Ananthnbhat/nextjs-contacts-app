@@ -27,14 +27,18 @@ export default function Contacts({ contactData }) {
   const [copy, setCopy] = useState(false)
   const handleCopy = (copiedItem) => {
     if (window.isSecureContext) {
-      navigator.clipboard.writeText(copiedItem);
+      try {
+        navigator.clipboard.writeText(copiedItem);
+      } catch (e) {
+        console.log("Couldn't complete copy operation", e)
+      }
     }
     setCopy(true)
   }
   useEffect(() => {
     setTimeout(() => {
       setCopy(false)
-    }, 10000);
+    }, 4000);
   }, [copy])
   return (
     <div className={styles.container}>
@@ -50,7 +54,7 @@ export default function Contacts({ contactData }) {
         </h1>
 
         <p className={styles.description}>
-          Click on any name to view more details about it{' '}
+          Click on any name to view more details about it.
         </p>
 
         <div className={styles.grid}>
