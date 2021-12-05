@@ -2,11 +2,11 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Contacts.module.css'
 import Link from 'next/link'
+import { useState, useEffect } from 'react'
 import { getEmailHref, getPhoneHref, onCopyStyle, offCopyStyle } from '../util'
 import copyIcon from '../public/icons/copy.svg'
 import phoneIcon from '../public/icons/phone.svg'
 import emailIcon from '../public/icons/envelope-alt.svg'
-import { useState, useEffect } from 'react'
 
 export async function getStaticProps() {
   const res = await fetch(`https://jsonplaceholder.typicode.com/users`)
@@ -50,7 +50,7 @@ export default function Contacts({ contactData }) {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Browse your contacts
+          Contacts
         </h1>
 
         <p className={styles.description}>
@@ -83,20 +83,7 @@ export default function Contacts({ contactData }) {
           ))}
         </div>
       </main>
-      <p style={copy ? onCopyStyle : offCopyStyle}>copied ☑</p>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
+      <p style={copy ? onCopyStyle : offCopyStyle}>copied !</p>
     </div>
   )
 }

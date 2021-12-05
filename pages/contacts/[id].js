@@ -23,6 +23,11 @@ function Contact({ contact }) {
             </Head>
             <main className={utilStyles.main}>
                 <div className={utilStyles.grid}>
+                    <div className={utilStyles.backToHome}>
+                        <Link href="/">
+                            <a>← Back to Contacts</a>
+                        </Link>
+                    </div>
                     <div className={utilStyles.card}>
                         <div className={utilStyles.centerImage}>
                             <Image
@@ -43,7 +48,8 @@ function Contact({ contact }) {
                         </div>
                         <p><span className={utilStyles.infoTitle}>Phone</span> <a className={utilStyles.link} href={phone}>{contact.phone}</a> </p>
                         <p><span className={utilStyles.infoTitle}>Email</span> <a className={utilStyles.link} href={mail}>{contact.email}</a> </p>
-                        <p><span className={utilStyles.infoTitle}>Address</span> {contact.address.street}, {contact.address.suite}, {contact.address.city}, {contact.address.zipcode} </p>
+                        <p><span className={utilStyles.infoTitle}>Address</span> {contact.address.street}, {contact.address.suite}, {contact.address.city} </p>
+                        <p><span className={utilStyles.infoTitle}>Zipcode</span>{contact.address.zipcode} </p>
                         <p><span className={utilStyles.infoTitle}>Website</span>{' '}
                             <Link href={website}>
                                 <a target="_blank" rel="noopener noreferrer" className={utilStyles.link}>{contact.website}</a>
@@ -54,7 +60,7 @@ function Contact({ contact }) {
                 </div>
                 <div className={utilStyles.backToHome}>
                     <Link href="/">
-                        <a>← Back to home</a>
+                        <a>← Back to Contacts</a>
                     </Link>
                 </div>
             </main>
