@@ -80,6 +80,11 @@
     width: 85%;
 }
 
+.iconWrapper a:hover {
+    scale: 1.1;
+    transition: color 0.2s ease, border-color 0.15s ease;
+}
+
 .infoTitle {
     color: #708496;
     display: inline-block;

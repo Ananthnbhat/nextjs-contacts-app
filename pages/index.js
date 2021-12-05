@@ -2,6 +2,11 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Contacts.module.css'
 import Link from 'next/link'
+import { getEmailHref, getPhoneHref, onCopyStyle, offCopyStyle } from '../util'
+import copyIcon from '../public/icons/copy.svg'
+import phoneIcon from '../public/icons/phone.svg'
+import emailIcon from '../public/icons/envelope-alt.svg'
+import { useState, useEffect } from 'react'
 
 export async function getStaticProps() {
   const res = await fetch(`https://jsonplaceholder.typicode.com/users`)
@@ -18,6 +23,19 @@ export async function getStaticProps() {
 }
 
 export default function Contacts({ contactData }) {
+
+  const [copy, setCopy] = useState(false)
+  const handleCopy = (copiedItem) => {
+    if (window.isSecureContext) {
+      navigator.clipboard.writeText(copiedItem);
+    }
+    setCopy(true)
+  }
+  useEffect(() => {
+    setTimeout(() => {
+      setCopy(false)
+    }, 10000);
+  }, [copy])
   return (
     <div className={styles.container}>
       <Head>
@@ -32,26 +50,36 @@ export default function Contacts({ contactData }) {
         </h1>
 
         <p className={styles.description}>
-          Click on any contact to view more details about it{' '}
+          Click on any name to view more details about it{' '}
         </p>
 
         <div className={styles.grid}>
           {contactData.map((contact) => (
-            <Link
-              key={contact.id}
-              href={`/contacts/${contact.id}`}
-            >
-              <li className={styles.card}>
+            <li key={contact.id} className={styles.card}>
+              <Link
+                href={`/contacts/${contact.id}`}
+              >
                 <h2>{contact.name}</h2>
-                <p className={styles.city}>from {contact.address.city}</p>
-                <br />
-                <a>{contact.phone}</a>
-
-              </li>
-            </Link>
+              </Link>
+              <p className={styles.city}>from {contact.address.city}</p>
+              <br />
+              <div className={styles.briefDetailsWrapper}>
+                <span className={styles.briefDetails}>
+                  <Image src={phoneIcon} height={20} />
+                  <a href={getPhoneHref(contact.phone)}>:&nbsp;{contact.phone}</a>
+                  <Image src={copyIcon} className={styles.copyButton} onClick={() => handleCopy(contact.phone)} height={20} />
+                </span>
+                <span className={styles.briefDetails}>
+                  <Image src={emailIcon} height={20} />
+                  <a href={getEmailHref(contact.email)}>:&nbsp;{contact.email}</a>
+                  <Image src={copyIcon} className={styles.copyButton} onClick={() => handleCopy(contact.email)} height={20} />
+                </span>
+              </div>
+            </li>
           ))}
         </div>
       </main>
+      <p style={copy ? onCopyStyle : offCopyStyle}>copied ☑</p>
 
       <footer className={styles.footer}>
         <a

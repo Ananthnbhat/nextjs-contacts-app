@@ -9,7 +9,6 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
 
@@ -86,26 +85,23 @@
   width: 90%;
   box-shadow: 0 5px 5px rgb(0 0 0 / 0.2);
   list-style: none;
-  cursor: pointer;
   background-color: white;
 
 }
 
-.card:hover,
-.card:focus,
-.card:active {
-  /* color: #0070f3; */
-  /* color: #991a42; */
-  /* border-color: #0070f3; */
-}
 
 .card h2 {
   margin: 0 0 0.5rem 0;
   font-size: 1.5rem;
+  cursor: pointer;
 }
 
 .card h2:hover {
   color: #991a42;
+}
+
+.card h2:hover::after {
+  content: " ➡";
 }
 
 .card p {
@@ -125,13 +121,40 @@
   margin-left: 0.5rem;
 }
 
+.briefDetailsWrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.briefDetailsWrapper a:hover {
+  color: #003e88;
+  text-decoration: underline;
+}
+
+.copyButton {
+  margin: 0 0.5rem;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.briefDetails {
+  display: flex;
+  align-items: center;
+  align-content: center;
+}
+
 @media (max-width: 600px) {
   .container {
-    padding: 0;
+    padding: 0 .2rem;
   }
 
   .grid {
     width: 100%;
     flex-direction: column;
+  }
+
+  .briefDetailsWrapper {
+    flex-direction: column;
+    line-height: 2.5rem;
   }
 }
