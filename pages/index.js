@@ -84,6 +84,9 @@ export default function Contacts({ contactData }) {
         </div>
       </main>
       <p style={copy ? onCopyStyle : offCopyStyle}>copied !</p>
+      <footer style={{ textAlign: 'center', marginBottom: '20px' }}>Be safe &#128567;. Built with <span style={{color: 'red',}}>&#10084;</span> by&nbsp;
+        <a style={{textDecoration: 'underline'}} target="_blank" href='https://github.com/Ananthnbhat' rel="noreferrer noopener">Ananth</a>
+      </footer>
     </div>
   )
 }
